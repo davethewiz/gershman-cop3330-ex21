@@ -7,30 +7,25 @@ import java.util.Hashtable;
 
 public class App
 {
-    public static double GetBAC(double A, double W, double r, double H) {
-        return (A * 5.14 / W * r) - 0.015 * H;
-    }
-
     public static void main( String[] args )
     {
-        int gender = Input.GetInt("Enter a 1 if you are male or a 2 if you are female: ");
-        double oz_alcohol = Input.GetDouble("How many ounces of alcohol did you have? ");
-        double weight = Input.GetDouble("What is your weight in pounds? ");
-        double hours = Input.GetDouble("How many hours has it been since your last drink? ");
+        Hashtable<Integer, String> numMonth = new Hashtable<Integer, String>();
 
-        double r = 0f;
-        if (gender == 1)
-            r = 0.73f;
-        else if (gender == 2)
-            r = 0.66f;
+        numMonth.put(1, "January");
+        numMonth.put(2, "February");
+        numMonth.put(3, "March");
+        numMonth.put(4, "April");
+        numMonth.put(5, "May");
+        numMonth.put(6, "June");
+        numMonth.put(7, "July");
+        numMonth.put(8, "August");
+        numMonth.put(9, "September");
+        numMonth.put(10, "October");
+        numMonth.put(11, "November");
+        numMonth.put(12, "December");
 
-        double BAC = GetBAC(oz_alcohol, weight, r, hours);
+        int monthNum = Input.GetInt("Please enter the number of the month: ");
 
-        System.out.printf("Your BAC is %.6f\n", BAC);
-
-        if (BAC >= 0.08)
-            System.out.print("It is not legal for you to drive.");
-        else
-            System.out.print("It is legal for you to drive.");
+        System.out.print("The name of the month is " + numMonth.get(monthNum) + ".");
     }
 }
